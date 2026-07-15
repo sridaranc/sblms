@@ -1,0 +1,13 @@
+{
+  "name": "sblms-face-extractor",
+  "version": "1.0.0",
+  "description": "Helper utility to extract face-api.js descriptors from images in a Node.js process without native dependencies",
+  "main": "face-extractor.js",
+  "type": "commonjs",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "face-api.js": "^0.22.2",
+    "jpeg-js": "^0.4.4",
+    "pngjs": "^7.0.0"
+  }
+}
