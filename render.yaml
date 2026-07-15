@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: sblms-api
+    runtime: docker
+    dockerfilePath: docker/Dockerfile.api
+    healthCheckPath: /swagger/index.html
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        sync: false
+      - key: Jwt__Key
+        generateValue: true
+      - key: Jwt__Issuer
+        value: SBLMS
+      - key: Jwt__Audience
+        value: SBLMS
+    plan: free
+    autoDeploy: true

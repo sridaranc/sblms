@@ -30,8 +30,16 @@
       },
       "package": "com.sblms.mobile",
       "usesCleartextTraffic": true,
-      "permissions": ["CAMERA", "ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"],
-      "blockedPermissions": ["RECORD_AUDIO"]
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "blockedPermissions": [
+        "RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -43,6 +51,11 @@
           "cameraPermission": "SBLMS needs camera access for face login and attendance verification."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f43ef2d5-b919-4f96-9172-a2cdfb45f7c1"
+      }
+    }
   }
 }
