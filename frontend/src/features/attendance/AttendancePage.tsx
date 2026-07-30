@@ -59,7 +59,7 @@ export default function AttendancePage() {
   }, [faceStep]);
 
   const today = new Date().toISOString().split('T')[0];
-  const { data: attendanceData, refetch: refetchAttendance } = useGetAttendanceQuery({ userId: user?.id, startDate: selectedMonth + '-01', endDate: selectedMonth + '-31' });
+  const { data: attendanceData } = useGetAttendanceQuery({ userId: user?.id, startDate: selectedMonth + '-01', endDate: selectedMonth + '-31' });
   const { data: todayAttendanceData, refetch: refetchToday } = useGetAttendanceQuery(
     { userId: user?.id, startDate: today, endDate: today },
     { pollingInterval: 30000 } // Poll every 30s to stay in sync with web/mobile
