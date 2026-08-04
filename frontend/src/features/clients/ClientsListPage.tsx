@@ -59,15 +59,15 @@ export default function ClientsListPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2, mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             Clients
           </Typography>
           <Typography variant="body2" color="text.secondary">Manage confirmed clients and their projects</Typography>
         </Box>
         <Can permission="clients-create">
-          <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/clients/new')} sx={{ px: 3 }}>
+          <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/clients/new')} size="small" sx={{ px: 2, alignSelf: { xs: 'stretch', sm: 'auto' } }}>
             Add Client
           </Button>
         </Can>
@@ -99,7 +99,7 @@ export default function ClientsListPage() {
           InputProps={{ startAdornment: <Search sx={{ mr: 1, color: 'text.secondary' }} /> }} />
       </Paper>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ overflow: 'auto' }}>
         <Table>
           <TableHead>
             <TableRow>

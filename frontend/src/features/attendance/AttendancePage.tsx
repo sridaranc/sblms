@@ -332,9 +332,9 @@ export default function AttendancePage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 4 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'flex-start' }, gap: 2, mb: { xs: 3, md: 4 } }}>
         <Box>
-          <Typography variant="h4" fontWeight="800" sx={{
+          <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' },
             background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
           }}>
@@ -344,7 +344,7 @@ export default function AttendancePage() {
             Check in/out with face verification and geolocation
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {canManualEntry && (
             <Button variant="contained" color="secondary" size="small"
               onClick={() => setManualEntryOpen(true)} sx={{ textTransform: 'none', borderRadius: '8px' }}>
@@ -377,7 +377,7 @@ export default function AttendancePage() {
 
       {tabIndex === 0 && (
         <>
-          <Grid container spacing={2.5} sx={{ mb: 4 }}>
+          <Grid container spacing={{ xs: 1.5, md: 2.5 }} sx={{ mb: { xs: 2, md: 4 } }}>
                   {statCards.map((stat) => (
                     <Grid item xs={12} sm={6} md={3} key={stat.label}>
                       <Card sx={{
@@ -407,7 +407,7 @@ export default function AttendancePage() {
                   ))}
                 </Grid>
           
-                <Grid container spacing={3} sx={{ mb: 3 }}>
+                <Grid container spacing={{ xs: 2, md: 3 }} sx={{ mb: 3 }}>
                   <Grid item xs={12} md={5}>
                     <Paper sx={{ p: 3, borderRadius: '16px' }}>
                       <Typography variant="h6" fontWeight="700" sx={{ mb: 2, color: '#1a1a3e' }}>

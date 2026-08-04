@@ -27,15 +27,15 @@ export default function NotificationsPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2, mb: 3 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #ff6b6b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Notifications</Typography>
+          <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #ff6b6b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Notifications</Typography>
           {unreadData && unreadData.count > 0 && <Chip label={`${unreadData.count} unread`} color="error" size="small" />}
         </Box>
-        <Button variant="outlined" startIcon={<CheckCircle />} onClick={handleMarkAllAsRead}>Mark All as Read</Button>
+        <Button variant="outlined" startIcon={<CheckCircle />} onClick={handleMarkAllAsRead} size="small" sx={{ alignSelf: { xs: 'stretch', sm: 'auto' } }}>Mark All as Read</Button>
       </Box>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ overflow: 'auto' }}>
         <Table>
           <TableHead><TableRow>
             <TableCell padding="checkbox"></TableCell>

@@ -527,22 +527,22 @@ export default function LeadsListPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2, mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #667eea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #667eea)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             Leads
           </Typography>
           <Typography variant="body2" color="text.secondary">Manage your business leads and prospects</Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          <Button variant="outlined" startIcon={<TableChart />} onClick={exportToExcel} sx={{ borderColor: '#10a37f', color: '#10a37f', '&:hover': { borderColor: '#10a37f', background: '#10a37f08' } }}>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+          <Button variant="outlined" startIcon={<TableChart />} onClick={exportToExcel} size="small" sx={{ borderColor: '#10a37f', color: '#10a37f', '&:hover': { borderColor: '#10a37f', background: '#10a37f08' } }}>
             Excel
           </Button>
-          <Button variant="outlined" startIcon={<PictureAsPdf />} onClick={exportToPDF} sx={{ borderColor: '#ff6b6b', color: '#ff6b6b', '&:hover': { borderColor: '#ff6b6b', background: '#ff6b6b08' } }}>
+          <Button variant="outlined" startIcon={<PictureAsPdf />} onClick={exportToPDF} size="small" sx={{ borderColor: '#ff6b6b', color: '#ff6b6b', '&:hover': { borderColor: '#ff6b6b', background: '#ff6b6b08' } }}>
             PDF
           </Button>
           <Can permission="leads-create">
-            <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/leads/new')} sx={{ px: 3 }}>
+            <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/leads/new')} size="small" sx={{ px: 2 }}>
               New Lead
             </Button>
           </Can>
@@ -550,7 +550,7 @@ export default function LeadsListPage() {
       </Box>
 
       {stats && (
-        <Grid container spacing={2} sx={{ mb: 3 }}>
+        <Grid container spacing={{ xs: 1, md: 2 }} sx={{ mb: 3 }}>
           {[
             { label: 'Total Leads', value: stats.totalLeads, color: '#667eea' },
             { label: 'New', value: stats.newLeads, color: '#4facfe' },
@@ -570,9 +570,9 @@ export default function LeadsListPage() {
         </Grid>
       )}
 
-      <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start' }}>
+      <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', flexDirection: { xs: 'column', lg: 'row' } }}>
         {/* Left: List Panel */}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
+        <Box sx={{ flex: 1, minWidth: 0, width: '100%' }}>
 
       <Paper sx={{ p: 2, mb: 2 }}>
         <Grid container spacing={2} alignItems="center">
@@ -629,7 +629,7 @@ export default function LeadsListPage() {
         </Grid>
       </Paper>
 
-      <TableContainer component={Paper} sx={{ overflow: 'hidden' }}>
+      <TableContainer component={Paper} sx={{ overflow: 'auto', maxWidth: '100%' }}>
         <Table size="small" sx={{ tableLayout: 'fixed', width: '100%' }}>
           <TableHead>
             <TableRow sx={{ background: 'linear-gradient(135deg, rgba(102,126,234,0.05), rgba(118,75,162,0.05))' }}>
@@ -793,7 +793,7 @@ export default function LeadsListPage() {
 
         {/* Right: Detail Panel */}
         {viewingLeadId && (
-          <Paper sx={{ width: 420, flexShrink: 0, borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 4px 24px rgba(0,0,0,0.06)', position: 'sticky', top: 20, maxHeight: 'calc(100vh - 120px)' }}>
+          <Paper sx={{ width: { xs: '100%', lg: 420 }, flexShrink: 0, borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0', boxShadow: '0 4px 24px rgba(0,0,0,0.06)', position: { lg: 'sticky' }, top: 20, maxHeight: { lg: 'calc(100vh - 120px)' } }}>
             <LeadDetailPanel leadId={viewingLeadId} onClose={() => setViewingLeadId(null)} />
           </Paper>
         )}

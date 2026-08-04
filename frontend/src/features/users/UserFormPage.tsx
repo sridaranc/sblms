@@ -127,6 +127,7 @@ export default function UserFormPage() {
           Back
         </Button>
         <Typography variant="h4" fontWeight="800" sx={{
+          fontSize: { xs: '1.5rem', md: '2.125rem' },
           background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)',
           WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
         }}>
@@ -136,7 +137,7 @@ export default function UserFormPage() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 4, borderRadius: '16px' }}>
+          <Paper sx={{ p: { xs: 2, sm: 4 }, borderRadius: '16px' }}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                 <Person sx={{ color: '#667eea' }} />
@@ -331,7 +332,7 @@ export default function UserFormPage() {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Paper sx={{ p: 3, borderRadius: '16px', position: 'sticky', top: 20 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: '16px', position: 'sticky', top: 20 }}>
             <Typography variant="h6" fontWeight="700" sx={{ mb: 2, color: '#1a1a3e' }}>
               User Preview
             </Typography>

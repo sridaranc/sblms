@@ -314,12 +314,13 @@ export default function AccessControlPage() {
   return (
     <Box className="animate-in">
       {/* Header */}
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
         <Button startIcon={<ArrowBack />} onClick={() => navigate('/settings')} sx={{ minWidth: 'auto', textTransform: 'none' }}>
           Back
         </Button>
         <Box sx={{ flex: 1 }}>
           <Typography variant="h4" fontWeight="800" sx={{
+            fontSize: { xs: '1.5rem', md: '2.125rem' },
             background: 'linear-gradient(135deg, #1a1a3e, #667eea)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
           }}>
@@ -370,12 +371,12 @@ export default function AccessControlPage() {
 
         {/* === TAB 0: ROLES === */}
         {activeTab === 0 && (
-          <Box sx={{ p: 3 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Box sx={{ p: { xs: 2, sm: 3 } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
               <TextField
                 size="small" placeholder="Search roles..." value={roleSearch} onChange={e => setRoleSearch(e.target.value)}
                 InputProps={{ startAdornment: <InputAdornment position="start"><Search /></InputAdornment> }}
-                sx={{ width: 300 }}
+                sx={{ width: { xs: '100%', sm: 300 } }}
               />
               <Button variant="contained" startIcon={<Add />} onClick={handleCreateRole}
                 sx={{ textTransform: 'none', borderRadius: '10px', background: 'linear-gradient(135deg, #667eea, #764ba2)' }}>
@@ -450,14 +451,14 @@ export default function AccessControlPage() {
 
         {/* === TAB 1: PERMISSIONS === */}
         {activeTab === 1 && (
-          <Box sx={{ p: 3 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Box sx={{ p: { xs: 2, sm: 3 } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
                 <TextField
                   size="small" placeholder="Search permissions..." value={permSearch}
                   onChange={e => setPermSearch(e.target.value)}
                   InputProps={{ startAdornment: <InputAdornment position="start"><Search /></InputAdornment> }}
-                  sx={{ width: 300 }}
+                  sx={{ width: { xs: '100%', sm: 300 } }}
                 />
                 {selectedRoleForPerms && (
                   <Chip
@@ -589,7 +590,7 @@ export default function AccessControlPage() {
 
         {/* === TAB 2: PERMISSION MATRIX === */}
         {activeTab === 2 && (
-          <Box sx={{ p: 3 }}>
+          <Box sx={{ p: { xs: 2, sm: 3 } }}>
             <Typography variant="h6" fontWeight="700" sx={{ mb: 2 }}>Permission Matrix</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
               Quick overview of all role-permission assignments. Rows = Resources, Columns = Roles.
@@ -673,12 +674,12 @@ export default function AccessControlPage() {
 
         {/* === TAB 3: USER ROLES === */}
         {activeTab === 3 && (
-          <Box sx={{ p: 3 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Box sx={{ p: { xs: 2, sm: 3 } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
               <TextField
                 size="small" placeholder="Search users..." value={userSearch} onChange={e => setUserSearch(e.target.value)}
                 InputProps={{ startAdornment: <InputAdornment position="start"><Search /></InputAdornment> }}
-                sx={{ width: 300 }}
+                sx={{ width: { xs: '100%', sm: 300 } }}
               />
             </Box>
 

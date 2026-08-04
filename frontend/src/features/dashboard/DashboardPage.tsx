@@ -45,20 +45,21 @@ export default function DashboardPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ p: 3, mb: 3, borderRadius: '20px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ p: { xs: 2, md: 3 }, mb: 3, borderRadius: { xs: '16px', md: '20px' }, background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', position: 'relative', overflow: 'hidden' }}>
         <Box sx={{ position: 'absolute', top: -20, right: -20, width: 200, height: 200, borderRadius: '50%', background: 'rgba(255,255,255,0.1)' }} />
         <Box sx={{ position: 'absolute', bottom: -30, right: 60, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
         <Box sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography variant="h4" fontWeight="800" sx={{ mb: 0.5 }}>
+          <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, mb: 0.5 }}>
             {getGreeting()}, {user?.firstName}!
           </Typography>
-          <Typography variant="body1" sx={{ opacity: 0.85, mb: 2 }}>
+          <Typography variant="body2" sx={{ opacity: 0.85, mb: 2, display: { xs: 'none', sm: 'block' } }}>
             Here's what's happening with your business today.
           </Typography>
-          <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap' }}>
+          <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
             {quickActions.map((action) => (
               <Button key={action.label} startIcon={action.icon} onClick={() => navigate(action.path)}
-                sx={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '10px', textTransform: 'none', fontWeight: 600, '&:hover': { background: 'rgba(255,255,255,0.3)' } }}>
+                size="small"
+                sx={{ background: 'rgba(255,255,255,0.2)', color: 'white', borderRadius: '10px', textTransform: 'none', fontWeight: 600, fontSize: '0.8rem', px: { xs: 1.5, sm: 2 }, '&:hover': { background: 'rgba(255,255,255,0.3)' } }}>
                 {action.label}
               </Button>
             ))}
@@ -87,9 +88,9 @@ export default function DashboardPage() {
         </Grid>
       </Grid>
 
-      <Grid container spacing={3} sx={{ mb: 3 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} sx={{ mb: 3 }}>
         <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 3, borderRadius: '16px' }}>
+          <Paper sx={{ p: { xs: 2, md: 3 }, borderRadius: '16px' }}>
             <Typography variant="h6" fontWeight="700" gutterBottom>Leads Pipeline</Typography>
             {stats?.leadsByStatus && stats.leadsByStatus.length > 0 ? (
               <ResponsiveContainer width="100%" height={320}>
@@ -113,7 +114,7 @@ export default function DashboardPage() {
           </Paper>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Paper sx={{ p: 3, height: '100%', borderRadius: '16px' }}>
+          <Paper sx={{ p: { xs: 2, md: 3 }, height: '100%', borderRadius: '16px' }}>
             <Typography variant="h6" fontWeight="700" gutterBottom>Lead Distribution</Typography>
             {stats?.leadsByStatus && stats.leadsByStatus.length > 0 ? (
               <ResponsiveContainer width="100%" height={280}>
@@ -137,7 +138,7 @@ export default function DashboardPage() {
       </Grid>
 
       {stats?.monthlyLeads && stats.monthlyLeads.length > 0 && (
-        <Paper sx={{ p: 3, mb: 3, borderRadius: '16px' }}>
+        <Paper sx={{ p: { xs: 2, md: 3 }, mb: 3, borderRadius: '16px' }}>
           <Typography variant="h6" fontWeight="700" gutterBottom>Monthly Trends</Typography>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={stats.monthlyLeads} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
@@ -155,7 +156,7 @@ export default function DashboardPage() {
       )}
 
       {activities.length > 0 && (
-        <Paper sx={{ p: 3, borderRadius: '16px' }}>
+        <Paper sx={{ p: { xs: 2, md: 3 }, borderRadius: '16px' }}>
           <ActivityTimeline activities={activities} />
         </Paper>
       )}

@@ -182,7 +182,7 @@ export default function RoleManagementPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
         <Button
           startIcon={<ArrowBack />}
           onClick={() => navigate('/settings')}
@@ -192,6 +192,7 @@ export default function RoleManagementPage() {
         </Button>
         <Box sx={{ flex: 1 }}>
           <Typography variant="h4" fontWeight="800" sx={{
+            fontSize: { xs: '1.5rem', md: '2.125rem' },
             background: 'linear-gradient(135deg, #1a1a3e, #667eea)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
           }}>
@@ -222,7 +223,7 @@ export default function RoleManagementPage() {
               <Avatar sx={{ width: 56, height: 56, bgcolor: '#667eea15', color: '#667eea', mx: 'auto', mb: 1 }}>
                 <Group sx={{ fontSize: 28 }} />
               </Avatar>
-              <Typography variant="h4" fontWeight="800" sx={{ color: '#667eea' }}>{roles.length}</Typography>
+              <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, color: '#667eea' }}>{roles.length}</Typography>
               <Typography color="text.secondary" variant="body2">Total Roles</Typography>
             </CardContent>
           </Card>
@@ -233,7 +234,7 @@ export default function RoleManagementPage() {
               <Avatar sx={{ width: 56, height: 56, bgcolor: '#00c9a715', color: '#00c9a7', mx: 'auto', mb: 1 }}>
                 <Security sx={{ fontSize: 28 }} />
               </Avatar>
-              <Typography variant="h4" fontWeight="800" sx={{ color: '#00c9a7' }}>{permissions.length}</Typography>
+              <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, color: '#00c9a7' }}>{permissions.length}</Typography>
               <Typography color="text.secondary" variant="body2">Total Permissions</Typography>
             </CardContent>
           </Card>
@@ -244,7 +245,7 @@ export default function RoleManagementPage() {
               <Avatar sx={{ width: 56, height: 56, bgcolor: '#ffc10715', color: '#ffc107', mx: 'auto', mb: 1 }}>
                 <Settings sx={{ fontSize: 28 }} />
               </Avatar>
-              <Typography variant="h4" fontWeight="800" sx={{ color: '#ffc107' }}>
+              <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, color: '#ffc107' }}>
                 {roles.filter(r => r.isSystemRole).length}
               </Typography>
               <Typography color="text.secondary" variant="body2">System Roles</Typography>

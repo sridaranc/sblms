@@ -145,7 +145,7 @@ export default function AiLeadsPage() {
   return (
     <Box className="animate-in">
       <Box sx={{ mb: 3 }}>
-        <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #764ba2)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #764ba2)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           AI Lead Discovery
         </Typography>
         <Typography variant="body2" color="text.secondary">Use AI to discover real business leads from keywords and company information</Typography>
@@ -168,7 +168,7 @@ export default function AiLeadsPage() {
 
       {tab === 0 && (
         <>
-          <Paper sx={{ p: 3, mb: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 }, mb: 3 }}>
             <Typography variant="h6" fontWeight="700" gutterBottom sx={{ color: '#764ba2' }}>
               <SmartToy sx={{ mr: 1, verticalAlign: 'middle' }} />Select AI Provider & Search
             </Typography>
@@ -233,7 +233,7 @@ export default function AiLeadsPage() {
           </Paper>
 
           {results.length > 0 && (
-            <Paper sx={{ p: 3 }}>
+            <Paper sx={{ p: { xs: 2, sm: 3 } }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                 <Typography variant="h6" fontWeight="700" sx={{ color: '#667eea' }}>
                   Results ({results.length} companies found via {aiProviders.find(p => p.value === aiProvider)?.label})
@@ -315,7 +315,7 @@ export default function AiLeadsPage() {
       )}
 
       {tab === 1 && (
-        <Paper sx={{ p: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 3 } }}>
           <Typography variant="h6" fontWeight="700" gutterBottom>Search History</Typography>
           <TableContainer>
             <Table>

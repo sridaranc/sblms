@@ -59,15 +59,15 @@ export default function FollowUpsListPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', sm: 'center' }, gap: 2, mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #fa709a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #fa709a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             Follow-ups
           </Typography>
           <Typography variant="body2" color="text.secondary">Track and manage your follow-up activities</Typography>
         </Box>
         <Can permission="followups-create">
-          <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/follow-ups/new')} sx={{ px: 3 }}>
+          <Button variant="contained" startIcon={<Add />} onClick={() => navigate('/follow-ups/new')} size="small" sx={{ px: 2, alignSelf: { xs: 'stretch', sm: 'auto' } }}>
             New Follow-up
           </Button>
         </Can>
@@ -90,7 +90,7 @@ export default function FollowUpsListPage() {
         </Grid>
       </Paper>
 
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ overflow: 'auto' }}>
         <Table>
           <TableHead>
             <TableRow>

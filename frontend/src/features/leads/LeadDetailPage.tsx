@@ -186,10 +186,10 @@ export default function LeadDetailPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
           <Button startIcon={<ArrowBack />} onClick={() => navigate('/leads')} sx={{ minWidth: 'auto' }}>Back</Button>
-          <Typography variant="h4" fontWeight="800">{lead.customerName}</Typography>
+          <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' } }}>{lead.customerName}</Typography>
           <Chip label={lead.status} color={statusColors[lead.status] || 'default'} sx={{ fontWeight: 600 }} />
         </Box>
         <Box sx={{ display: 'flex', gap: 1 }}>
@@ -207,7 +207,7 @@ export default function LeadDetailPage() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 3, mb: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 }, mb: 3 }}>
             <Typography variant="h6" fontWeight="700" gutterBottom sx={{ color: '#667eea' }}>Lead Information</Typography>
             <Divider sx={{ mb: 2 }} />
             <Grid container spacing={2.5}>
@@ -231,7 +231,7 @@ export default function LeadDetailPage() {
           </Paper>
 
           {/* Meetings Section */}
-          <Paper sx={{ p: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 } }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6" fontWeight="700" sx={{ color: '#764ba2' }}>
                 <Event sx={{ mr: 1, verticalAlign: 'middle' }} />Meetings & Follow-ups ({meetings.length})
@@ -316,7 +316,7 @@ export default function LeadDetailPage() {
           </Paper>
 
           {/* Follow-ups Section */}
-          <Paper sx={{ p: 3, mt: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 }, mt: 3 }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6" fontWeight="700" sx={{ color: '#00c9a7' }}>
                 <AccessTime sx={{ mr: 1, verticalAlign: 'middle' }} />Follow-ups ({followUps.length})
@@ -590,7 +590,7 @@ export default function LeadDetailPage() {
                         </Box>
                       </CardContent>
                     </Card>
-                    <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                       <Button variant="contained" startIcon={meetingLoading ? <CircularProgress size={20} /> : <Send />} onClick={handleSendToClient} disabled={meetingLoading}
                         sx={{ background: 'linear-gradient(135deg, #667eea, #764ba2)' }}>
                         {meetingLoading ? 'Sending...' : 'Send to Client'}

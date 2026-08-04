@@ -227,8 +227,8 @@ export default function AppLayout({ children }: { children: ReactNode }) {
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
-        <Toolbar sx={{ py: 0.5 }}>
-          <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { md: 'none' } }}>
+        <Toolbar sx={{ py: 0.5, px: { xs: 1, sm: 2 } }}>
+          <IconButton color="inherit" edge="start" onClick={handleDrawerToggle} sx={{ mr: 1, display: { md: 'none' } }}>
             <MenuIcon />
           </IconButton>
           <Box sx={{ flex: 1 }} />
@@ -295,10 +295,12 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       </Drawer>
       <Box component="main" sx={{
         flexGrow: 1,
-        p: { xs: 2, md: 3 },
-        mt: 8,
+        p: { xs: 1.5, sm: 2, md: 3 },
+        mt: { xs: 7, md: 8 },
         minHeight: '100vh',
         background: '#f0f2f8',
+        overflow: 'auto',
+        maxWidth: '100vw',
       }}>
         {children || <Outlet />}
       </Box>

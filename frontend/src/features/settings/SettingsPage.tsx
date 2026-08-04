@@ -21,7 +21,7 @@ export default function SettingsPage() {
 
   return (
     <Box className="animate-in">
-      <Typography variant="h4" fontWeight="800" gutterBottom sx={{ background: 'linear-gradient(135deg, #1a1a3e, #6b7280)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Settings</Typography>
+      <Typography variant="h4" fontWeight="800" gutterBottom sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #6b7280)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Settings</Typography>
 
       <Can any={['roles-read', 'face-enrolment-read', 'settings-read']}>
         <Grid container spacing={3} sx={{ mb: 3 }}>
@@ -63,7 +63,7 @@ export default function SettingsPage() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 } }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
               <Person sx={{ color: '#667eea' }} />
               <Typography variant="h6" fontWeight="700">Profile</Typography>
@@ -86,7 +86,7 @@ export default function SettingsPage() {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 } }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
               <NotificationsActive sx={{ color: '#fa709a' }} />
               <Typography variant="h6" fontWeight="700">Notifications</Typography>
@@ -100,7 +100,7 @@ export default function SettingsPage() {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Paper sx={{ p: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 } }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
               <Security sx={{ color: '#00c9a7' }} />
               <Typography variant="h6" fontWeight="700">Security</Typography>

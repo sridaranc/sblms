@@ -59,11 +59,11 @@ export default function FollowUpFormPage() {
     <Box className="animate-in">
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
         <Button startIcon={<ArrowBack />} onClick={() => navigate('/follow-ups')} sx={{ minWidth: 'auto' }}>Back</Button>
-        <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #fa709a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #fa709a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           {isEdit ? 'Edit Follow-up' : 'New Follow-up'}
         </Typography>
       </Box>
-      <Paper sx={{ p: 4 }}>
+      <Paper sx={{ p: { xs: 2, sm: 4 } }}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}><TextField fullWidth select label="Lead *" {...register('leadId')} error={!!errors.leadId} helperText={errors.leadId?.message} size="small">{leadsData?.data?.map((l: any) => <MenuItem key={l.id} value={l.id}>{l.customerName} ({l.leadNumber})</MenuItem>)}</TextField></Grid>

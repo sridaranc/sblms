@@ -39,7 +39,7 @@ const getDevHost = (): string => {
 };
 
 const DEV_HOST = getDevHost();
-const API_BASE_URL = __DEV__ ? `http://${DEV_HOST}:5080` : 'https://api.sblms.com';
+const API_BASE_URL = __DEV__ ? `http://${DEV_HOST}:5080` : 'https://sblms-api.onrender.com';
 
 export const API_URL = API_BASE_URL;
 export const API_URL_WITH_PATH = `${API_BASE_URL}/api`;

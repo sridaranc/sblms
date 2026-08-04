@@ -66,13 +66,13 @@ export default function ReportsPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Reports</Typography>
+          <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Reports</Typography>
           <Typography variant="body2" color="text.secondary">Analytics and export reports</Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
-          <Paper sx={{ p: 1.5, display: 'flex', gap: 1, alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+          <Paper sx={{ p: 1.5, display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
             <TextField size="small" type="date" label="Start Date" value={startDate} onChange={(e) => setStartDate(e.target.value)} InputLabelProps={{ shrink: true }} />
             <TextField size="small" type="date" label="End Date" value={endDate} onChange={(e) => setEndDate(e.target.value)} InputLabelProps={{ shrink: true }} />
           </Paper>
@@ -105,7 +105,7 @@ export default function ReportsPage() {
                 </Grid>
               ))}
             </Grid>
-            <Paper sx={{ p: 3, mb: 2 }}>
+            <Paper sx={{ p: { xs: 2, sm: 3 }, mb: 2 }}>
               <Typography variant="h6" fontWeight="700" gutterBottom>Leads by Status</Typography>
               {loadingStatus ? <CircularProgress /> : (
                 <ResponsiveContainer width="100%" height={300}>

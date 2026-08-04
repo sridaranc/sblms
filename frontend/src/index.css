@@ -80,3 +80,17 @@ body {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
+
+/* Mobile Responsive Utilities */
+@media (max-width: 600px) {
+  .MuiTableCell-root {
+    padding: 8px 10px !important;
+    font-size: 0.8rem !important;
+  }
+  .MuiTablePagination-root {
+    overflow: hidden;
+  }
+  .MuiChip-root {
+    font-size: 0.7rem !important;
+  }
+}

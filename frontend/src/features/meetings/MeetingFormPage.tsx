@@ -138,13 +138,13 @@ export default function MeetingFormPage() {
     <Box className="animate-in">
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
         <Button startIcon={<ArrowBack />} onClick={() => navigate('/meetings')} sx={{ minWidth: 'auto' }}>Back</Button>
-        <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #a18cd1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #a18cd1)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           {isEdit ? 'Edit Meeting' : 'Schedule Meeting'}
         </Typography>
       </Box>
 
       {/* Progress Steps */}
-      <Box sx={{ display: 'flex', gap: 1, mb: 3 }}>
+      <Box sx={{ display: 'flex', gap: 1, mb: 3, flexWrap: 'wrap' }}>
         {steps.map((step, i) => (
           <Chip key={i} label={step} icon={i < currentStep ? <CheckCircle sx={{ fontSize: 14 }} /> : i === currentStep ? <Event sx={{ fontSize: 14 }} /> : undefined}
             sx={{
@@ -160,7 +160,7 @@ export default function MeetingFormPage() {
         {/* Left: Form */}
         <Grid item xs={12} md={8}>
           <form onSubmit={handleSubmit(onSubmitSetup)}>
-            <Paper sx={{ p: 3, borderRadius: '16px' }}>
+            <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: '16px' }}>
               {/* Lead Selection */}
               {!isEdit && !preselectedLeadId && (
                 <Box sx={{ mb: 3 }}>
@@ -275,7 +275,7 @@ export default function MeetingFormPage() {
 
         {/* Right: Preview */}
         <Grid item xs={12} md={4}>
-          <Paper sx={{ p: 3, borderRadius: '16px', position: 'sticky', top: 20 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: '16px', position: 'sticky', top: 20 }}>
             <Typography fontWeight="700" sx={{ mb: 2 }}>Meeting Preview</Typography>
 
             <Box sx={{ textAlign: 'center', mb: 2 }}>

@@ -51,14 +51,14 @@ export default function ClientDetailPage() {
 
   return (
     <Box className="animate-in">
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' }, gap: 2, mb: 3 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
           <Button startIcon={<ArrowBack />} onClick={() => navigate('/clients')}>Back</Button>
           <Avatar sx={{ width: 48, height: 48, background: 'linear-gradient(135deg, #00c9a7, #4facfe)', fontSize: '1.2rem', fontWeight: 700 }}>
             {client.companyName[0]}
           </Avatar>
           <Box>
-            <Typography variant="h5" fontWeight="800">{client.companyName}</Typography>
+            <Typography variant="h5" fontWeight="800" sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }}>{client.companyName}</Typography>
             <Typography variant="body2" color="text.secondary">{client.clientNumber} | {client.contactPerson}</Typography>
           </Box>
         </Box>
@@ -66,7 +66,7 @@ export default function ClientDetailPage() {
 
       <Grid container spacing={3}>
         <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 3, mb: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 }, mb: 3 }}>
             <Typography variant="h6" fontWeight="700" sx={{ color: '#667eea' }} gutterBottom>Contact Information</Typography>
             <Divider sx={{ mb: 2 }} />
             <Grid container spacing={2}>
@@ -82,7 +82,7 @@ export default function ClientDetailPage() {
             </Grid>
           </Paper>
 
-          <Paper sx={{ p: 3 }}>
+          <Paper sx={{ p: { xs: 2, sm: 3 } }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
               <Typography variant="h6" fontWeight="700" sx={{ color: '#764ba2' }}>Projects ({client.projects?.length || 0})</Typography>
               <Button variant="contained" size="small" startIcon={<Add />} onClick={() => setProjectDialog(true)}>Add Project</Button>

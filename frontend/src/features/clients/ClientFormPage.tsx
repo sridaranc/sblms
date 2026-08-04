@@ -102,12 +102,12 @@ export default function ClientFormPage() {
     <Box className="animate-in">
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
         <Button startIcon={<ArrowBack />} onClick={() => navigate('/clients')} sx={{ minWidth: 'auto' }}>Back</Button>
-        <Typography variant="h4" fontWeight="800" sx={{ background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h4" fontWeight="800" sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' }, background: 'linear-gradient(135deg, #1a1a3e, #00c9a7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           {isEdit ? 'Edit Client' : 'New Client'}
         </Typography>
       </Box>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#667eea' }}>Company Information</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>
@@ -120,7 +120,7 @@ export default function ClientFormPage() {
           </Grid>
         </Paper>
 
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#764ba2' }}>Primary Contact</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>
@@ -135,7 +135,7 @@ export default function ClientFormPage() {
           </Grid>
         </Paper>
 
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#fa709a' }}>Secondary Contact</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>
@@ -145,7 +145,7 @@ export default function ClientFormPage() {
           </Grid>
         </Paper>
 
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#00c9a7' }}>Address</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>
@@ -157,7 +157,7 @@ export default function ClientFormPage() {
           </Grid>
         </Paper>
 
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#ffc107' }}>Business Details</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>
@@ -170,7 +170,7 @@ export default function ClientFormPage() {
           </Grid>
         </Paper>
 
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#667eea' }}>Financial & Communication</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>
@@ -181,7 +181,7 @@ export default function ClientFormPage() {
           </Grid>
         </Paper>
 
-        <Paper sx={{ p: 4, mb: 3 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, mb: 3 }}>
           <Typography variant="h6" fontWeight="700" sx={{ color: '#764ba2' }}>Notes</Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={3}>

@@ -31,7 +31,7 @@ axiosClient.interceptors.response.use(
         const accessToken = localStorage.getItem('accessToken');
 
         if (refreshToken && accessToken) {
-          const response = await axios.post('/api/auth/refresh', {
+          const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5080/api'}/auth/refresh`, {
             accessToken,
             refreshToken,
           });
