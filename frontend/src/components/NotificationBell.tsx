@@ -75,13 +75,14 @@ export default function NotificationBell() {
     try {
       const token = localStorage.getItem('accessToken');
       if (!token) return;
+      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5080/api';
       const now = new Date();
       const thirtyMinLater = new Date(now.getTime() + 30 * 60 * 1000);
       const params = new URLSearchParams({ pageSize: '50' });
 
       const [fuRes, mtRes] = await Promise.all([
-        fetch(`/api/followups?${params}`, { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).catch(() => null),
-        fetch(`/api/meetings?startDate=${now.toISOString()}&endDate=${thirtyMinLater.toISOString()}&pageSize=50`, { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).catch(() => null),
+        fetch(`${baseUrl}/followups?${params}`, { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).catch(() => null),
+        fetch(`${baseUrl}/meetings?startDate=${now.toISOString()}&endDate=${thirtyMinLater.toISOString()}&pageSize=50`, { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).catch(() => null),
       ]);
 
       const followUps = fuRes?.data?.items || fuRes?.data || fuRes?.items || fuRes || [];

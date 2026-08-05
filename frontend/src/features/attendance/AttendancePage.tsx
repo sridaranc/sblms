@@ -77,10 +77,12 @@ export default function AttendancePage() {
   }, [todayRecord]);
 
   useEffect(() => {
-    faceRecognitionService.loadModels().then(setModelsLoaded);
     loadTodayRecord();
-    getCurrentLocation();
   }, [attendanceData]);
+
+  useEffect(() => {
+    getCurrentLocation();
+  }, []);
 
   // Sync todayRecord from the today-specific polling query
   useEffect(() => {
@@ -142,6 +144,9 @@ export default function AttendancePage() {
 
   const startCamera = async () => {
     try {
+      if (!modelsLoaded) {
+        await faceRecognitionService.loadModels().then(setModelsLoaded);
+      }
       setCameraActive(true);
       setFaceStep('idle');
       await new Promise(resolve => setTimeout(resolve, 100));

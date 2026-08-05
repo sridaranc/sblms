@@ -76,8 +76,10 @@ export default function LoginPage() {
   }, [faceStep]);
 
   useEffect(() => {
-    faceRecognitionService.loadModels().then(setModelsLoaded);
-  }, []);
+    if (activeTab === 1) {
+      faceRecognitionService.loadModels().then(setModelsLoaded);
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     if (activeTab === 1 && modelsLoaded) {

@@ -13,9 +13,6 @@ import { useState, Fragment } from 'react';
 import { useGetLeadsQuery, useGetLeadByIdQuery, useDeleteLeadMutation, useGetLeadStatsQuery,
   useGetFollowUpsQuery, useGetLeadMeetingsQuery, useBulkAssignLeadsMutation, useGetUsersQuery } from '../../api/api';
 import { Can } from '../../components/Can';
-import * as XLSX from 'xlsx';
-import { jsPDF } from 'jspdf';
-import autoTable from 'jspdf-autotable';
 
 const statusColors: Record<string, 'default' | 'info' | 'warning' | 'success' | 'error'> = {
   New: 'info', FollowUp: 'warning', Contacted: 'info', Interested: 'info', MeetingScheduled: 'warning',
@@ -475,7 +472,8 @@ export default function LeadsListPage() {
     }
   };
 
-  const exportToExcel = () => {
+  const exportToExcel = async () => {
+    const XLSX = await import('xlsx');
     const exportData = filteredLeads.map((lead: any) => ({
       'Lead #': lead.leadNumber,
       'Customer': lead.customerName,
@@ -497,7 +495,9 @@ export default function LeadsListPage() {
     setSnackbar({ open: true, message: 'Excel file downloaded', severity: 'success' });
   };
 
-  const exportToPDF = () => {
+  const exportToPDF = async () => {
+    const { default: jsPDF } = await import('jspdf');
+    const { default: autoTable } = await import('jspdf-autotable');
     const doc = new jsPDF('landscape', 'mm', 'a4');
     doc.setFontSize(18);
     doc.text('Leads Report', 14, 20);
